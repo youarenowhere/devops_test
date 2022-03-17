@@ -1,4 +1,4 @@
 # devops_test
 devops_test
-dev repain main
-dev1 rapair dev1    2
+This is main and dev merge
+main rapair dev1  3+2=5
