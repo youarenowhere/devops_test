@@ -20,6 +20,6 @@ public class HelloControllerer {
     @GetMapping("/jenkins")
     public String hello()
     {
-        return "hello";
+        return "hello maven";
     }
 }
