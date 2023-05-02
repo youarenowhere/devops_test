@@ -33,12 +33,64 @@
         </dependency>
     </dependencies>
 
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+
+
     <build>
+        <finalName>devops_demo_0502</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>
+                        com.example.demo.DemoApplication
+                    </mainClass>
+                    <layout>JAR</layout>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+
+            <!--增加docker打包插件-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.9</version>
+                <configuration>
+                    <!--私有镜像地址-->
+                    <!--                    <repository>${project.artifactId}</repository>-->
+                    <repository>registry.cn-beijing.aliyuncs.com/iamnowhere/devops_demo</repository>
+                    <!-- 镜像版本号 -->
+                    <tag>1.1.1</tag>
+                    <buildArgs>
+                        <!-- 参数，提供给dockerfile使用 -->
+                        <JAR_FILE>target/devops_demo1.jar</JAR_FILE>
+                    </buildArgs>
+
+                </configuration>
+
+            </plugin>
+
         </plugins>
     </build>
 
