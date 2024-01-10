@@ -84,7 +84,7 @@
                     <tag>${project.version}</tag>
                     <buildArgs>
                         <!-- 参数，提供给dockerfile使用 -->
-<!--                        <JAR_FILE>target/devops_demo_0502.jar</JAR_FILE>-->
+                        <!--                        <JAR_FILE>target/devops_demo_0502.jar</JAR_FILE>-->
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
 

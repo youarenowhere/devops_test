@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description
  */
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("/doc")
 public class HelloControllerer {
 
 
